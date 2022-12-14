@@ -1,19 +1,22 @@
-// import logo from './logo.svg';
-// import './App.css';
 import React from 'react';
-
-import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Login from './pages/Login';
-import Signup from './pages/Signup';
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
 
-const httpLink = createHttpLink({
-  uri: '/graphql',
-});
+import Home from './pages/Home';
+import Login from './pages/Login';
+import NoMatch from './pages/NoMatch';
+import SinglePost from './pages/SingleThought';
+import Profile from './pages/Profile';
+import Signup from './pages/Signup';
 
 
 const authLink = setContext((_, { headers }) => {
