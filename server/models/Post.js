@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose');
 const reactionSchema = require('./Reaction');
+const likeSchema = require('./Like')
 const dateFormat = require('../utils/dateFormat');
 
 const postSchema = new Schema(
@@ -19,7 +20,8 @@ const postSchema = new Schema(
       type: String,
       required: true
     },
-    reactions: [reactionSchema]
+    reactions: [reactionSchema],
+    likes: [likeSchema]
   },
   {
     toJSON: {
