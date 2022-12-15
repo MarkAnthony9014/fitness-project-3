@@ -17,6 +17,7 @@ const typeDefs = gql`
     username: String
     reactionCount: Int
     reactions: [Reaction]
+    likeCount: Int
   }
 
   type Reaction {
@@ -24,6 +25,12 @@ const typeDefs = gql`
     reactionBody: String
     createdAt: String
     username: String
+  }
+
+  type Like {
+    _id: ID
+    likeCount: Int
+
   }
 
   type Auth {
