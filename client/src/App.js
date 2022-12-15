@@ -69,7 +69,14 @@ function App() {
                 element={<NoMatch />} 
               />
             </Routes>
+            <div className='border2'>
+            <p>border comments</p>
+            </div>
           </div>
+          <div className='border1'>
+            <p>border comments</p>
+          </div>
+
           <Footer />
         </div>
       </Router>

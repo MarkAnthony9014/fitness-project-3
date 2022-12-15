@@ -58,19 +58,22 @@ const PostForm = () => {
   };
 
   return (
-    <div>
+    <div >
+      <div className='card mb-3'>
+      </div>
+      <h3>Add a Post</h3>
       <p
-        className={`m-0 ${characterCount === 280 || error ? 'text-error' : ''}`}
+        className={`card-header postCard m-0 ${characterCount === 280 || error ? 'text-error' : ''}`}
       >
         Character Count: {characterCount}/280
         {error && <span className="ml-2">Something went wrong...</span>}
       </p>
       <form
-        className="flex-row justify-center justify-space-between-md align-stretch"
+        className="card-body postCon flex-row justify-center justify-space-between-md align-stretc"
         onSubmit={handleFormSubmit}
       >
         <textarea
-          placeholder="Here's a new post..."
+          placeholder="Insert here..."
           value={postText}
           className="form-input col-12 col-md-9"
           onChange={handleChange}
@@ -80,6 +83,10 @@ const PostForm = () => {
         </button>
       </form>
     </div>
+
+
+
+    
   );
 };
 
