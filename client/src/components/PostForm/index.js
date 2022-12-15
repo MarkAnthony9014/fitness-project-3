@@ -69,7 +69,7 @@ const PostForm = () => {
         {error && <span className="ml-2">Something went wrong...</span>}
       </p>
       <form
-        className="card-body postCon flex-row justify-center justify-space-between-md align-stretc"
+        className="card-body postCon flex-row justify-center justify-space-between-md align-stretch"
         onSubmit={handleFormSubmit}
       >
         <textarea
