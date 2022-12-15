@@ -1,3 +1,22 @@
+export const QUERY_POSTS = gql`
+  query post($id: ID!) {
+    post(_id: $id) {
+      _id
+      postText
+      createdAt
+      username
+      reactionCount
+      reactions {
+        _id
+        createdAt
+        username
+        reactionBody
+      }
+    }
+  }
+`;
+
+
 export const QUERY_POST = gql`
   query post($id: ID!) {
     post(_id: $id) {
@@ -15,6 +34,7 @@ export const QUERY_POST = gql`
     }
   }
 `;
+
 
 export const QUERY_USER = gql`
   query user($username: String!) {
