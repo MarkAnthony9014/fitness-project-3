@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Feed = ({ posts, title }) => {
     if (!posts.length) {
-      return <h3>No Thoughts Yet</h3>;
+      return <h3>No Posts Yet</h3>;
     }
 
 return (
