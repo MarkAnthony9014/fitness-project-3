@@ -28,7 +28,7 @@ const thoughtSchema = new Schema(
     //: [likeSchema]
 =======
     reactions: [reactionSchema]
->>>>>>> develop
+>>>>>>> develo
   },
   {
     toJSON: {
