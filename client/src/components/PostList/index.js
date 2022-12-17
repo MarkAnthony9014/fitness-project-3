@@ -1,7 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useMutation } from '@apollo/client';
+import { ADD_LIKE } from '../../utils/mutations';
+import { useState } from 'react'
 
 const PostList = ({ posts, title }) => {
+  const [addLike, {error}] = useMutation(ADD_LIKE)
+  const handleLike = async (postId) => {
+    const returnData = await addLike({
+          variables: { postId: postId}}
+          );
+    console.log(returnData);
+  }
+
+
+
   if (!posts.length) {
     return <h3>No Posts Yet</h3>;
   }
@@ -23,6 +36,9 @@ const PostList = ({ posts, title }) => {
               posted on {post.createdAt}
             </p>
             <div className="card-body">
+
+              <button className='likebtn' onClick={() => handleLike(post._id)}>Like</button>
+
               <Link to={`/post/${post._id}`}>
                 <p>{post.postText}</p>
                 <p className="mb-0">

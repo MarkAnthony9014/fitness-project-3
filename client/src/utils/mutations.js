@@ -54,6 +54,20 @@ export const ADD_REACTION = gql`
   }
 `;
 
+export const ADD_LIKE = gql`
+  mutation addLike($postId: ID!) {
+    addLike(postId: $postId) {
+      _id
+      likeCount 
+      likes {
+        _id
+        username
+        userId
+      }
+    }
+  }
+`;
+
 export const ADD_FRIEND = gql`
   mutation addFriend($id: ID!) {
     addFriend(friendId: $id) {

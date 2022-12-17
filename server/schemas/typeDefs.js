@@ -17,12 +17,20 @@ const typeDefs = gql`
     username: String
     reactionCount: Int
     reactions: [Reaction]
+    likeCount: Int
+    likes: [Like]
   }
 
   type Reaction {
     _id: ID
     reactionBody: String
     createdAt: String
+    username: String
+  }
+
+  type Like {
+    _id: ID
+    userId: String
     username: String
   }
 
@@ -45,6 +53,7 @@ const typeDefs = gql`
     addPost(postText: String!): Post
     addReaction(postId: ID!, reactionBody: String!): Post
     addFriend(friendId: ID!): User
+    addLike(postId: ID!): Post
   }
 `;
 
