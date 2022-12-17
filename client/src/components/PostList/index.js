@@ -8,6 +8,8 @@ const PostList = ({ posts, title }) => {
 
   return (
     <div>
+      <div className='card mt-4'>
+      </div>
       <h3>{title}</h3>
       {posts &&
         posts.map(post => (
@@ -16,19 +18,20 @@ const PostList = ({ posts, title }) => {
               <Link
                 to={`/profile/${post.username}`}
                 style={{ fontWeight: 700 }}
-                className="text-light"
+                className="text-white"
               >
                 {post.username}
               </Link>{' '}
               posted on {post.createdAt}
             </p>
             <div className="card-body">
-              <Link to={`/post/${post._id}`}>
-                <p>{post.postText}</p>
+            <p>{post.postText}</p>
                 <p className="mb-0">
-                  Reactions: {post.reactionCount} || Click to{' '}
-                  {post.reactionCount ? 'see' : 'start'} the discussion!
+                  Comments: {post.reactionCount}
+                  {post.reactionCount ? ' ' : ''}
                 </p>
+              <Link to={`/post/${post._id}`}>
+                <button className='replyBtn bg-secondary mt-4 p-2 border rounded-1'>Reply</button>
               </Link>
             </div>
           </div>
