@@ -18,7 +18,7 @@ const PostList = ({ posts, title }) => {
               <Link
                 to={`/profile/${post.username}`}
                 style={{ fontWeight: 700 }}
-                className="text-light"
+                className="text-white"
               >
                 {post.username}
               </Link>{' '}
@@ -27,8 +27,8 @@ const PostList = ({ posts, title }) => {
             <div className="card-body">
             <p>{post.postText}</p>
                 <p className="mb-0">
-                  Reactions: {post.reactionCount}
-                  {post.reactionCount ? 'see' : ''}
+                  Comments: {post.reactionCount}
+                  {post.reactionCount ? ' ' : ''}
                 </p>
               <Link to={`/post/${post._id}`}>
                 <button className='replyBtn bg-secondary mt-4 p-2 border rounded-1'>Reply</button>

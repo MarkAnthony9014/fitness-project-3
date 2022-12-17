@@ -156,7 +156,7 @@ nav a:hover {
 }
 
 .card-header {
-  color: var(--secondary);
+  color: white;
   margin: 0;
   background-color: var(--dark);
   padding: 0.625rem;
