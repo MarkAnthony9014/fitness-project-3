@@ -35,7 +35,7 @@ db.once('open', async () => {
     await User.updateOne({ _id: userId }, { $addToSet: { friends: friendId } });
   }
 
-  // create thoughts
+  // create posts
   let createdPosts = [];
   for (let i = 0; i < 100; i += 1) {
     const postText = faker.lorem.words(Math.round(Math.random() * 20) + 1);
