@@ -99,16 +99,3 @@ export const QUERY_ME_BASIC = gql`
     }
   }
 `;
-
-export const QUERY_GYM_RADAR = gql`
-  {
-    query {
-      gyms(location: "<Your location>") {
-        name
-        address
-        website
-      }
-    }
-
-  }
-`;
