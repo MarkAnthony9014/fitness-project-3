@@ -37,11 +37,12 @@ const PostList = ({ posts, title }) => {
             </p>
             <div className="card-body">
 
-              <button className='likebtn' onClick={() => handleLike(post._id)}>Like</button>
-
               <Link to={`/post/${post._id}`}>
                 <p>{post.postText}</p>
                 <p className="mb-0">
+
+                <button className='likebtn' onClick={() => handleLike(post._id)}>Like</button>
+
                   Reactions: {post.reactionCount} || Click to{' '}
                   {post.reactionCount ? 'see' : 'start'} the discussion!
                 </p>
