@@ -39,7 +39,7 @@ const resolvers = {
       return Category.find();
     },
     category: async () => {
-      return Category.findOne();a
+      return Category.findOne();
     }
   },
 
@@ -72,6 +72,12 @@ const resolvers = {
 
         await User.findByIdAndUpdate(
           { _id: context.user._id },
+          { $push: { posts: post._id } },
+          { new: true }
+        );
+
+        await Category.findOneAndUpdate(
+          { categoryName: post.category },
           { $push: { posts: post._id } },
           { new: true }
         );
