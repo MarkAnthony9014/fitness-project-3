@@ -36,9 +36,11 @@ const resolvers = {
       return Post.findOne({ _id });
     },
     categories: async () => {
-      return Category.find()
+      return Category.find();
     },
-    
+    category: async () => {
+      return Category.findOne();a
+    }
   },
 
   Mutation: {
@@ -104,8 +106,17 @@ const resolvers = {
       }
 
       throw new AuthenticationError('You need to be logged in!');
+    },
+    addCategory: async (parent, args, context) => {
+      if (context.user) {
+        const category = await Category.create({ ...args});
+
+        return category;
     }
+     throw new AuthenticationError('You need to be logged in!');
   }
+}
 };
+
 
 module.exports = resolvers;
