@@ -7,12 +7,13 @@ import { useState } from 'react'
 const PostList = ({ posts, title }) => {
   const [addLike, {error}] = useMutation(ADD_LIKE)
   const handleLike = async (postId) => {
+    console.log('test')
     const returnData = await addLike({
           variables: { postId: postId}}
           );
     console.log(returnData);
   }
-
+//  checkLiked ? <button>Unlike</button> : <button>Like</button>
 
 
   if (!posts.length) {
@@ -37,16 +38,17 @@ const PostList = ({ posts, title }) => {
             </p>
             <div className="card-body">
 
-              <Link to={`/post/${post._id}`}>
                 <p>{post.postText}</p>
                 <p className="mb-0">
 
-                <button className='likebtn' onClick={() => handleLike(post._id)}>Like</button>
-
+                <button className='btn' onClick={() => handleLike(post._id)}>Like</button>
+                  {post.likeCount}
+                  <Link to={`/post/${post._id}`}>
                   Reactions: {post.reactionCount} || Click to{' '}
                   {post.reactionCount ? 'see' : 'start'} the discussion!
+                  </Link>
                 </p>
-              </Link>
+              
             </div>
           </div>
         ))}

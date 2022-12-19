@@ -7,6 +7,11 @@ export const QUERY_POSTS = gql`
       postText
       createdAt
       username
+      likes {
+        _id
+        userId
+      }
+      likeCount
       reactionCount
       reactions {
         _id

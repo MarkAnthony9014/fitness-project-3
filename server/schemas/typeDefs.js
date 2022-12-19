@@ -30,7 +30,7 @@ const typeDefs = gql`
 
   type Like {
     _id: ID
-    userId: String
+    userId: [String]
     username: String
   }
 
@@ -54,6 +54,7 @@ const typeDefs = gql`
     addReaction(postId: ID!, reactionBody: String!): Post
     addFriend(friendId: ID!): User
     addLike(postId: ID!): Post
+    removeLike(postId: ID!): Post
   }
 `;
 
