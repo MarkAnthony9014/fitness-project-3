@@ -19,6 +19,12 @@ const postSchema = new Schema(
       type: String,
       required: true
     },
+    
+    category: {
+      type: String,
+      required: true
+    },
+    
     reactions: [reactionSchema]
   },
   {
