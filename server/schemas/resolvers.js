@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Post } = require('../models');
+const { User, Post, Category } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -34,7 +34,11 @@ const resolvers = {
     },
     post: async (parent, { _id }) => {
       return Post.findOne({ _id });
-    }
+    },
+    categories: async () => {
+      return Category.find()
+    },
+    
   },
 
   Mutation: {
