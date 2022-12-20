@@ -3,6 +3,14 @@ import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { ADD_LIKE } from '../../utils/mutations';
 import { useState } from 'react'
+import Dropdown from 'react-dropdown';
+import 'react-dropdown/style.css';
+const options = [
+  'none', 'one', 'two', 'three'
+];
+const defaultOption = options[0];
+
+
 
 const PostList = ({ posts, title }) => {
   const [addLike, {error}] = useMutation(ADD_LIKE)
@@ -14,17 +22,32 @@ const PostList = ({ posts, title }) => {
     console.log(returnData);
   }
 //  checkLiked ? <button>Unlike</button> : <button>Like</button>
+const [ filteredPosts, setFilteredPosts ] =  useState( posts );
+const [ category, setCategory ] = useState( defaultOption );
 
+ const handleSort = ( category ) => {
+  console.log(category.value)
+  setCategory(category.value)
+  if (category.value !== "none" ) {
+    const filtered = posts.filter(post => post.category == category.value);
+    setFilteredPosts( filtered ) 
+  } else {
+    setFilteredPosts( posts );
+  }
+ }
 
   if (!posts.length) {
     return <h3>No Posts Yet</h3>;
   }
 
+
+
   return (
     <div>
       <h3>{title}</h3>
-      {posts &&
-        posts.map(post => (
+      <Dropdown options={options} onChange={handleSort} value={defaultOption} placeholder="Select an option" />
+      {filteredPosts &&
+        filteredPosts.map(post => (
           <div key={post._id} className="card mb-3">
             <p className="card-header">
               <Link

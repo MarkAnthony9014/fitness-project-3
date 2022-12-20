@@ -21,7 +21,11 @@ const postSchema = new Schema(
       required: true
     },
     reactions: [reactionSchema],
-    likes: [likeSchema]
+    likes: [likeSchema],
+    category: {
+      type: String,
+      required: true
+    }
   },
   {
     toJSON: {

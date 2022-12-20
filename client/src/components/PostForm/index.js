@@ -1,8 +1,18 @@
 import React, { useState } from 'react';
-
 import { useMutation } from '@apollo/client';
 import { ADD_POST } from '../../utils/mutations';
 import { QUERY_POSTS, QUERY_ME } from '../../utils/queries';
+import Dropdown from 'react-dropdown';
+import 'react-dropdown/style.css';
+
+const options = [
+  'one', 'two', 'three'
+];
+const defaultOption = options[0];
+
+
+
+
 
 const PostForm = () => {
   const [postText, setText] = useState('');
@@ -39,6 +49,13 @@ const PostForm = () => {
       setCharacterCount(event.target.value.length);
     }
   };
+const [ category, setCategory ] = useState( defaultOption );
+
+ const handleDropdown = ( category ) => {
+  console.log(category.value)
+  setCategory(category.value)
+ }
+
 
   // submit form
   const handleFormSubmit = async (event) => {
@@ -46,7 +63,7 @@ const PostForm = () => {
 
     try {
       await addPost({
-        variables: { postText },
+        variables: { postText, category },
       });
 
       // clear form value
@@ -75,6 +92,7 @@ const PostForm = () => {
           className="form-input col-12 col-md-9"
           onChange={handleChange}
         ></textarea>
+        <Dropdown options={options} onChange={handleDropdown} value={defaultOption} placeholder="Select an option" />
         <button className="btn col-12 col-md-3" type="submit">
           Submit
         </button>
