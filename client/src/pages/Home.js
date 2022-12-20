@@ -24,7 +24,7 @@ const Home = () => {
           ) : (
             <PostList
               posts={posts}
-              title="Write a Post(s)..."
+              title="Post Feed"
             />
           )}
         </div>

@@ -44,6 +44,8 @@ const [ category, setCategory ] = useState( defaultOption );
 
   return (
     <div>
+      <div className='card mt-4'>
+      </div>
       <h3>{title}</h3>
       <Dropdown options={options} onChange={handleSort} value={defaultOption} placeholder="Select an option" />
       {filteredPosts &&
@@ -53,13 +55,14 @@ const [ category, setCategory ] = useState( defaultOption );
               <Link
                 to={`/profile/${post.username}`}
                 style={{ fontWeight: 700 }}
-                className="text-light"
+                className="text-white"
               >
                 {post.username}
               </Link>{' '}
               posted on {post.createdAt}
             </p>
             <div className="card-body">
+            <p>{post.postText}</p>
 
                 <p>{post.postText}</p>
                 <p className="mb-0">
@@ -71,7 +74,9 @@ const [ category, setCategory ] = useState( defaultOption );
                   {post.reactionCount ? 'see' : 'start'} the discussion!
                   </Link>
                 </p>
-              
+              <Link to={`/post/${post._id}`}>
+                <button className='replyBtn bg-secondary mt-4 p-2 border rounded-1'>Reply</button>
+              </Link>
             </div>
           </div>
         ))}
