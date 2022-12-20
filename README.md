@@ -6,7 +6,8 @@
     communicate with another, make friends, and share their thoughts.
 
 ## Descrption
-    In order to have the application perform as intended, we constructed the code base as following:
+    In order to have the application perform as intended, 
+    we constructed the code base as following:
 
     * Used GraphQL for api configuration such as: 
 
@@ -18,7 +19,10 @@
 
     * Deployed the application to Heroku using Mongoose
 
-    * By using the create-app function from React, we established a base to work off from for the application and added our own dependencies:
+    * By using the create-app function from React, we established 
+    a base to work off from for the application and added our 
+    own dependencies:
+
         *concurrently   nodemon
         apollo/client   web-vitals
         testing-library/jest-dom
@@ -29,7 +33,9 @@
         react-router-dom
         react-scripts
         
-    * In the client side package Json, we downgraded the react dependencies to enable the ability for out app to be abke to run on the port we initiate
+    * In the client side package Json, we downgraded the react 
+    dependencies to enable the ability for out app to be abke 
+    to run on the port we initiate
 
 ## Built With
     * JavaScript
@@ -42,10 +48,12 @@
     * NoSql/MySQL
 
 ## Installation
-    The user will have to download the dependencies by writing into their terminal: npm i
+    The user will have to download the dependencies by writing 
+    into their terminal: npm i
 
 ## Usage
-    To start our application, the user will have to write into their terminal:
+    To start our application, the user will have to write 
+    into their terminal:
     npm run develop
 
 ## Questions
