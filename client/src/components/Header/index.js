@@ -8,7 +8,7 @@ const Header = () => {
     event.preventDefault();
     Auth.logout();
   };
-
+  
   return (
     <header className="bg-secondary py-1 flex-row align-center">
       <div className="container flex-row justify-space-between-lg justify-center align-center">
@@ -20,7 +20,12 @@ const Header = () => {
           <div className="container-fluid">
               {Auth.loggedIn() ? (
               <>
-              
+                {/* <Link
+                  to={`/profile/${post.username}`}
+                  style={{ fontWeight: 700 }}
+                  className="text-white"
+                ></Link> */}
+
                 <Link to="/profile">User</Link>
                 <a href="/" onClick={logout}>
                   Logout

@@ -22,8 +22,8 @@ const PostList = ({ posts, title }) => {
     console.log(returnData);
   }
 //  checkLiked ? <button>Unlike</button> : <button>Like</button>
-const [ filteredPosts, setFilteredPosts ] =  useState( posts );
-const [ category, setCategory ] = useState( defaultOption );
+  const [ filteredPosts, setFilteredPosts ] =  useState( posts );
+  const [ category, setCategory ] = useState( defaultOption );
 
  const handleSort = ( category ) => {
   console.log(category.value)
@@ -62,8 +62,8 @@ const [ category, setCategory ] = useState( defaultOption );
               posted on {post.createdAt}
             </p>
             <div className="card-body">
-              <p>{post.postText}</p>
-              <p className="postInfo mb-2 m-4">  
+            <p>{post.postText}</p>
+              <p className="postInfo mb-2 m-4 mt-6">  
                 <Link className='mr-2' to={`/post/${post._id}`}>
                   Comments: {post.reactionCount}{' '}
                   {post.reactionCount ? ' ' : '   '}
