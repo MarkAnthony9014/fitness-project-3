@@ -6,7 +6,7 @@ import { useState } from 'react'
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 const options = [
-  'none', 'one', 'two', 'three'
+  'None', 'Arms', 'Chest', 'Abdominal/Torso', 'Shoulders', 'Legs', 'Back'
 ];
 const defaultOption = options[0];
 
@@ -70,7 +70,7 @@ const [ category, setCategory ] = useState( defaultOption );
                 <button className='btn' onClick={() => handleLike(post._id)}>Like</button>
                   {post.likeCount}
                   <Link to={`/post/${post._id}`}>
-                  Reactions: {post.reactionCount} || Click to{' '}
+                  Comments: {post.reactionCount} || Click to{' '}
                   {post.reactionCount ? 'see' : 'start'} the discussion!
                   </Link>
                 </p>
