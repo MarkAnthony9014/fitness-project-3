@@ -807,7 +807,7 @@ nav a:hover {
 }
 
 .text-secondary {
-  color: var(--color-primary-variant);
+  color: var(--color-primary-white);
 }
 
 .text-tertiary {
@@ -1370,8 +1370,10 @@ header {
   border-top: 10px solid var(--dark);
   border-radius: 4px;
   font-size: 18px;
+  margin-bottom: auto;
+  position: relative;
 }
 
 main {
-  background-color: rgb(219, 230, 239);
+  background-image:src="./assets/images/gymImage.jpg";
 }

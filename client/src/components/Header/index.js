@@ -10,26 +10,29 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-secondary  mb-4 py-1 flex-row align-center">
+    <header className="bg-secondary py-1 flex-row align-center">
       <div className="container flex-row justify-space-between-lg justify-center align-center">
         <Link to="/">
           <h1>LiftoSphere</h1>
         </Link>
 
-        <nav className="text-center">
-          {Auth.loggedIn() ? (
-            <>
-              <Link to="/profile">User</Link>
-              <a href="/" onClick={logout}>
-                Logout
-              </a>
-            </>
-          ) : (
-            <>
-              <Link to="/login">Login</Link>
-              <Link to="/signup">Signup</Link>
-            </>
-          )}
+        <nav className="navbar navbar-inverser text-center">
+          <div className="container-fluid">
+              {Auth.loggedIn() ? (
+              <>
+                <Link to="/profile">User</Link>
+                <a href="/" onClick={logout}>
+                  Logout
+                </a>
+              </>
+            ) : (
+              <>
+                <Link to="/login">Login</Link>
+                <Link to="/signup">Signup</Link>
+              </>
+
+            )}
+          </div>
         </nav>
       </div>
     </header>
