@@ -92,7 +92,8 @@ h6 {
 }
 
 h1 {
-  font-size: 2.25rem;
+  font-size: 3.25rem;
+  color: var(--color-bg);
 }
 
 h2 {
@@ -101,6 +102,7 @@ h2 {
 
 h3 {
   font-size: 1.75rem;
+  margin-left: 10px;
 }
 
 h4 {
@@ -132,18 +134,21 @@ a:visited {
 nav {
   width: 100%;
   justify-content: center;
-  background: var(--color-white);
+
 }
 
 nav a {
   padding: 6px 10px;
   margin: 0 15px;
   transition: all 0.2s;
+  color: black;
+  border-radius: 12px;
+  
 }
 
 nav a:hover {
   color: var(--secondary);
-  background-color: var(--color-white);
+  background: var(--color-bg);;
 }
 
 .page-title {
@@ -155,16 +160,18 @@ nav a:hover {
 
 .btn,
 .pill {
-  font-size: 1.3rem;
+
   text-decoration: none;
   padding: 0.5rem 1.2rem;
-  margin: 5px 0;
+  margin: 5px 5px;
   border-radius: var(--border-radius);
   border: none;
   color: var(--dark);
   outline: none;
   background-color: var(--secondary);
   transition: all 0.5s;
+
+
 }
 
 .btn:hover,
@@ -181,7 +188,7 @@ nav a:hover {
 .card {
   margin: 0 0 20px 0;
   border: 3px solid var(--dark);
-  border-radius: var(--border-radius);
+  border-radius: 4px;
   
   color: var(--dark);
 }
@@ -191,12 +198,12 @@ nav a:hover {
   margin: 0;
   background-color: var(--dark);
   padding: 0.625rem;
-  border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
 }
 
 .card-body {
   padding: 2.5%;
   font-size: 1.4rem;
+  background-color: white;
 }
 
 /* FORM */
@@ -280,6 +287,7 @@ nav a:hover {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+  top: 0;
 }
 
 .container-fluid {
@@ -783,6 +791,7 @@ nav a:hover {
 
 .text-center {
   text-align: center;
+  color: var(--color-bg);
 }
 
 .text-justify {
@@ -839,7 +848,8 @@ nav a:hover {
 }
 
 .bg-dark {
-  background-color: var(--dark);
+  margin-left: 30%;
+  font-size: 50px;
 }
 
 /* FLEX CONTENT */
@@ -856,6 +866,10 @@ nav a:hover {
 
 .justify-space-between {
   justify-content: space-between;
+  border-right: 4px solid var(--dark);
+  border-left: 4px solid var(--dark);
+  padding: 30px;
+  
 }
 
 .justify-space-around {
@@ -1298,7 +1312,7 @@ nav a:hover {
 }
 
 .replyBtn {
-  border-radius: 3px;
+  border-radius: 40px;
   border: 1px solid var(--dark);
   color: var(--dark);
 }
@@ -1306,6 +1320,7 @@ nav a:hover {
 footer div {
   margin-left: 50%;
   font-size: 15px;
+  color: var(--color-bg)
 }
 
 header {
@@ -1343,4 +1358,20 @@ header {
 .postCard {
   border: 2px solid var(--dark);
   border-radius: 6px 6px 0 0;
+}
+
+.postInfo {
+  display: flex;
+  justify-content: end;
+  font-size: 21px;
+}
+
+.postFormNav {
+  border-top: 10px solid var(--dark);
+  border-radius: 4px;
+  font-size: 18px;
+}
+
+main {
+  background-color: rgb(219, 230, 239);
 }

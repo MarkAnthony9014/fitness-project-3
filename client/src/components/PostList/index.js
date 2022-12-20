@@ -46,8 +46,8 @@ const [ category, setCategory ] = useState( defaultOption );
     <div>
       <div className='card mt-4'>
       </div>
+      <Dropdown className="m-4"options={options} onChange={handleSort} value={defaultOption} placeholder="Select an option" />
       <h3>{title}</h3>
-      <Dropdown options={options} onChange={handleSort} value={defaultOption} placeholder="Select an option" />
       {filteredPosts &&
         filteredPosts.map(post => (
           <div key={post._id} className="card mb-3">
@@ -63,19 +63,19 @@ const [ category, setCategory ] = useState( defaultOption );
             </p>
             <div className="card-body">
             <p>{post.postText}</p>
+              <p className="postInfo mb-2 m-4">  
 
-                <p>{post.postText}</p>
-                <p className="mb-0">
+                Comments: {post.reactionCount}
+                {post.reactionCount ? ' ' : ' '}
 
-                <button className='btn' onClick={() => handleLike(post._id)}>Like</button>
-                  {post.likeCount}
-                  <Link to={`/post/${post._id}`}>
-                  Comments: {post.reactionCount} || Click to{' '}
-                  {post.reactionCount ? 'see' : 'start'} the discussion!
-                  </Link>
-                </p>
+                Likes: {post.likeCount}                
+
+              </p>
+              <button  className='btn' onClick={() => handleLike(post._id)}>Like</button>
+
               <Link to={`/post/${post._id}`}>
-                <button className='replyBtn bg-secondary mt-4 p-2 border rounded-1'>Reply</button>
+                <button className='btn'>Reply</button>
+
               </Link>
             </div>
           </div>

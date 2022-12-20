@@ -95,7 +95,7 @@ const [ category, setCategory ] = useState( defaultOption );
           className="form-input col-12 col-md-9"
           onChange={handleChange}
         ></textarea>
-        <Dropdown options={options} onChange={handleDropdown} value={defaultOption} placeholder="Select an option" />
+        <Dropdown className="postFormNav" options={options} onChange={handleDropdown} value={defaultOption} placeholder="Select an option" />
         <button className="btn col-12 col-md-3" type="submit">
           Submit
         </button>
