@@ -22,7 +22,7 @@ export const QUERY_POST = gql`
   query post($id: ID!) {
     post(_id: $id) {
       _id
-      psotText
+      postText
       createdAt
       username
       reactionCount
@@ -31,6 +31,21 @@ export const QUERY_POST = gql`
         createdAt
         username
         reactionBody
+      }
+    }
+  }
+`;
+
+export const QUERY_CATEGORIES = gql`
+  query category($id: ID!) {
+    category(_id: $id) {
+      _id
+      categoryName
+      post {
+        _id
+        postText
+        createdAt
+        reactionCount
       }
     }
   }
