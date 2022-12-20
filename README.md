@@ -58,4 +58,6 @@
 
 ## Questions
     Contact us for any questions:
-    * aasupertwix15@gmail.com
+    <a href="aasupertwix15@gmail.com">aasupertwix15@gmail.com</a>
+    <a href="rlmartin1996@gmail.com">rlmartin1996@gmail.com</a>
+    <a href="markanthony9014@gmail.com">markanthony9014@gmail.com</a>
