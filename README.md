@@ -1,7 +1,9 @@
 # LiftoSphere
 
 ## Project
-    As a team of full stack web developers, we want to establish a social platform based on health and fitness. Here, users will be able to communicate with another, make friends, and share their thoughts.
+    As a team of full stack web developers we want to establish a social
+    platform based on health and fitness. Here, users will be able to 
+    communicate with another, make friends, and share their thoughts.
 
 ## Descrption
     In order to have the application perform as intended, we constructed the code base as following:
@@ -49,5 +51,3 @@
 ## Questions
     Contact us for any questions:
     * aasupertwix15@gmail.com
-    * markanthony9014@gmail.com
-    * rlmartin1996@gmail.com
