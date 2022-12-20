@@ -41,7 +41,7 @@ export const QUERY_CATEGORIES = gql`
     category(_id: $id) {
       _id
       categoryName
-      post {
+      posts {
         _id
         postText
         createdAt
