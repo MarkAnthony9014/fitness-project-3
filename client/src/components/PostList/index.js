@@ -67,7 +67,7 @@ const [ category, setCategory ] = useState( defaultOption );
                 <button className='btn' onClick={() => handleLike(post._id)}>Like</button>
                   {post.likeCount}
                   <Link to={`/post/${post._id}`}>
-                  Reactions: {post.reactionCount} || Click to{' '}
+                  Comments: {post.reactionCount} || Click to{' '}
                   {post.reactionCount ? 'see' : 'start'} the discussion!
                   </Link>
                 </p>
