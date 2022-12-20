@@ -62,11 +62,12 @@ const [ category, setCategory ] = useState( defaultOption );
               posted on {post.createdAt}
             </p>
             <div className="card-body">
-            <p>{post.postText}</p>
+              <p>{post.postText}</p>
               <p className="postInfo mb-2 m-4">  
-
-                Comments: {post.reactionCount}
-                {post.reactionCount ? ' ' : ' '}
+                <Link className='mr-2' to={`/post/${post._id}`}>
+                  Comments: {post.reactionCount}{' '}
+                  {post.reactionCount ? ' ' : '   '}
+                </Link>
 
                 Likes: {post.likeCount}                
 

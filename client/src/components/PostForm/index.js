@@ -10,10 +10,6 @@ const options = [
 ];
 const defaultOption = options[0];
 
-
-
-
-
 const PostForm = () => {
   const [postText, setText] = useState('');
   const [characterCount, setCharacterCount] = useState(0);

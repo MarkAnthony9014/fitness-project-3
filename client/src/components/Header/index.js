@@ -20,6 +20,7 @@ const Header = () => {
           <div className="container-fluid">
               {Auth.loggedIn() ? (
               <>
+              
                 <Link to="/profile">User</Link>
                 <a href="/" onClick={logout}>
                   Logout
