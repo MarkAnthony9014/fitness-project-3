@@ -6,7 +6,7 @@ import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 
 const options = [
-  'one', 'two', 'three'
+  'Arms', 'Chest', 'Abdominal/Torso', 'Shoulders', 'Legs', 'Back'
 ];
 const defaultOption = options[0];
 
