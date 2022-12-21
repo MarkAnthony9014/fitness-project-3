@@ -8,7 +8,9 @@
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
     "seed": "cd server && npm run seed",
-    "build": "cd client && npm run build"
+    "build": "cd client && npm run build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "repository": {
     "type": "git",
@@ -23,5 +25,5 @@
   "bugs": {
     "url": "https://github.com/MarkAnthony9014/fitness-project-3/issues"
   },
-  "homepage": "https://github.com/MarkAnthony9014/fitness-project-3#readme"
+  "homepage": "https://github.com/MarkAnthony9014/fitness-project-3"
 }
