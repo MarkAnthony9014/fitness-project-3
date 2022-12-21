@@ -33,6 +33,8 @@
         react-router-dom
         react-scripts
         
+
+        
     * In the client side package Json, we downgraded the react 
     dependencies to enable the ability for out app to be abke 
     to run on the port we initiate
@@ -61,3 +63,6 @@
     <a href="aasupertwix15@gmail.com">aasupertwix15@gmail.com</a>
     <a href="rlmartin1996@gmail.com">rlmartin1996@gmail.com</a>
     <a href="markanthony9014@gmail.com">markanthony9014@gmail.com</a>
+    
+## Preview to Application
+![project3](https://user-images.githubusercontent.com/106582411/208957650-00e0a17b-5762-4e36-a32c-508c2fb50ae3.jpeg)
