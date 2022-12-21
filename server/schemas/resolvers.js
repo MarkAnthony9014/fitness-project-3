@@ -1,32 +1,32 @@
-const { AuthenticationError } = require('apollo-server-express');
-const { User, Post } = require('../models');
-const { signToken } = require('../utils/auth');
+const { AuthenticationError } = require("apollo-server-express");
+const { User, Post } = require("../models");
+const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
     me: async (parent, args, context) => {
       if (context.user) {
         const userData = await User.findOne({ _id: context.user._id })
-          .select('-__v -password')
-          .populate('posts')
-          .populate('friends');
+          .select("-__v -password")
+          .populate("posts")
+          .populate("friends");
 
         return userData;
       }
 
-      throw new AuthenticationError('Not logged in');
+      throw new AuthenticationError("Not logged in");
     },
     users: async () => {
       return User.find()
-        .select('-__v -password')
-        .populate('posts')
-        .populate('friends');
+        .select("-__v -password")
+        .populate("posts")
+        .populate("friends");
     },
     user: async (parent, { username }) => {
       return User.findOne({ username })
-        .select('-__v -password')
-        .populate('friends')
-        .populate('posts');
+        .select("-__v -password")
+        .populate("friends")
+        .populate("posts");
     },
     posts: async (parent, { username }) => {
       const params = username ? { username } : {};
@@ -34,7 +34,7 @@ const resolvers = {
     },
     post: async (parent, { _id }) => {
       return Post.findOne({ _id });
-    }
+    },
   },
 
   Mutation: {
@@ -48,13 +48,13 @@ const resolvers = {
       const user = await User.findOne({ email });
 
       if (!user) {
-        throw new AuthenticationError('Incorrect credentials');
+        throw new AuthenticationError("Incorrect credentials");
       }
 
       const correctPw = await user.isCorrectPassword(password);
 
       if (!correctPw) {
-        throw new AuthenticationError('Incorrect credentials');
+        throw new AuthenticationError("Incorrect credentials");
       }
 
       const token = signToken(user);
@@ -62,7 +62,10 @@ const resolvers = {
     },
     addPost: async (parent, args, context) => {
       if (context.user) {
-        const post = await Post.create({ ...args, username: context.user.username });
+        const post = await Post.create({
+          ...args,
+          username: context.user.username,
+        });
 
         await User.findByIdAndUpdate(
           { _id: context.user._id },
@@ -73,48 +76,71 @@ const resolvers = {
         return post;
       }
 
-      throw new AuthenticationError('You need to be logged in!');
+      throw new AuthenticationError("You need to be logged in!");
     },
     addReaction: async (parent, { postId, reactionBody }, context) => {
       if (context.user) {
         const updatedPost = await Post.findOneAndUpdate(
           { _id: postId },
-          { $push: { reactions: { reactionBody, username: context.user.username } } },
+          {
+            $push: {
+              reactions: { reactionBody, username: context.user.username },
+            },
+          },
           { new: true, runValidators: true }
         );
 
         return updatedPost;
       }
 
-      throw new AuthenticationError('You need to be logged in!');
+      throw new AuthenticationError("You need to be logged in!");
     },
     addLike: async (parent, { postId }, context) => {
       if (context.user) {
-        
-        const updatedPost = await Post.findOneAndUpdate(
-          { _id: postId },
-          { $push: { likes: { username: context.user.username, userId: context.user._id } } },
-          { new: true, runValidators: true }
+        const post = await Post.findById(postId);
+        const hasLiked = post.likes.filter(
+          (user) => user.userId == context.user._id
         );
+        if (!hasLiked.length) {
+          const updatedPost = await Post.findOneAndUpdate(
+            { _id: postId },
+            {
+              $push: {
+                likes: {
+                  username: context.user.username,
+                  userId: context.user._id,
+                },
+              },
+            },
+            { new: true, runValidators: true }
+          );
 
-        return updatedPost;
+          return updatedPost;
         }
+        return post;
+      }
 
-      throw new AuthenticationError('You need to be logged in!');
+      throw new AuthenticationError("You need to be logged in!");
     },
     removeLike: async (parent, { postId }, context) => {
       if (context.user) {
-        
         const updatedPost = await Post.findOneAndUpdate(
           { _id: postId },
-          { $pull: { likes: { username: context.user.username, userId: context.user._id } } },
+          {
+            $pull: {
+              likes: {
+                username: context.user.username,
+                userId: context.user._id,
+              },
+            },
+          },
           { new: true, runValidators: true }
         );
 
         return updatedPost;
-        }
+      }
 
-      throw new AuthenticationError('You need to be logged in!');
+      throw new AuthenticationError("You need to be logged in!");
     },
     addFriend: async (parent, { friendId }, context) => {
       if (context.user) {
@@ -122,14 +148,14 @@ const resolvers = {
           { _id: context.user._id },
           { $addToSet: { friends: friendId } },
           { new: true }
-        ).populate('friends');
+        ).populate("friends");
 
         return updatedUser;
       }
 
-      throw new AuthenticationError('You need to be logged in!');
-    }
-  }
+      throw new AuthenticationError("You need to be logged in!");
+    },
+  },
 };
 
 module.exports = resolvers;
