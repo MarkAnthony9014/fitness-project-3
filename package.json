@@ -20,7 +20,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "concurrently": "^5.1.0"
+    "concurrently": "^5.1.0",
+    "gh-pages": "^4.0.0"
   },
   "bugs": {
     "url": "https://github.com/MarkAnthony9014/fitness-project-3/issues"
