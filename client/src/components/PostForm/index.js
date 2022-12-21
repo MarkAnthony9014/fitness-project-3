@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
-
 import { useMutation } from '@apollo/client';
 import { ADD_POST } from '../../utils/mutations';
 import { QUERY_POSTS, QUERY_ME } from '../../utils/queries';
+import Dropdown from 'react-dropdown';
+import 'react-dropdown/style.css';
+
+const options = [
+  'Arms', 'Chest', 'Abdominal/Torso', 'Shoulders', 'Legs', 'Back'
+];
+const defaultOption = options[0];
 
 const PostForm = () => {
   const [postText, setText] = useState('');
@@ -39,6 +45,13 @@ const PostForm = () => {
       setCharacterCount(event.target.value.length);
     }
   };
+const [ category, setCategory ] = useState( defaultOption );
+
+ const handleDropdown = ( category ) => {
+  console.log(category.value)
+  setCategory(category.value)
+ }
+
 
   // submit form
   const handleFormSubmit = async (event) => {
@@ -46,7 +59,7 @@ const PostForm = () => {
 
     try {
       await addPost({
-        variables: { postText },
+        variables: { postText, category },
       });
 
       // clear form value
@@ -58,28 +71,36 @@ const PostForm = () => {
   };
 
   return (
-    <div>
+    <div >
+      <div className='card mb-3'>
+      </div>
+      <h3>Add a Post</h3>
       <p
-        className={`m-0 ${characterCount === 280 || error ? 'text-error' : ''}`}
+        className={`card-header postCard m-0 ${characterCount === 280 || error ? 'text-error' : ''}`}
       >
         Character Count: {characterCount}/280
         {error && <span className="ml-2">Something went wrong...</span>}
       </p>
       <form
-        className="flex-row justify-center justify-space-between-md align-stretch"
+        className="card-body postCon flex-row justify-center justify-space-between-md align-stretch"
         onSubmit={handleFormSubmit}
       >
         <textarea
-          placeholder="Here's a new post..."
+          placeholder="Insert here..."
           value={postText}
           className="form-input col-12 col-md-9"
           onChange={handleChange}
         ></textarea>
+        <Dropdown className="postFormNav" options={options} onChange={handleDropdown} value={defaultOption} placeholder="Select an option" />
         <button className="btn col-12 col-md-3" type="submit">
           Submit
         </button>
       </form>
     </div>
+
+
+
+    
   );
 };
 

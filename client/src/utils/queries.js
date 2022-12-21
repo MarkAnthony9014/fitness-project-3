@@ -7,6 +7,7 @@ export const QUERY_POSTS = gql`
       postText
       createdAt
       username
+      category
       likes {
         _id
         userId
@@ -27,9 +28,10 @@ export const QUERY_POST = gql`
   query post($id: ID!) {
     post(_id: $id) {
       _id
-      psotText
+      postText
       createdAt
       username
+      category
       reactionCount
       reactions {
         _id

@@ -13,18 +13,19 @@ const Home = () => {
   return (
     <main>
       <div className="flex-row justify-space-between">
+
         {loggedIn && (
           <div className="col-12 mb-3">
             <PostForm />
           </div>
         )}
-        <div className={`col-12 mb-3 ${loggedIn && 'col-lg-8'}`}>
+        <div className={`col-12  mb-3 ${loggedIn && 'col-lg-8'}`}>
           {loading ? (
             <div>Loading...</div>
           ) : (
             <PostList
               posts={posts}
-              title="Write a Post(s)..."
+              title="Post Feed"
             />
           )}
         </div>
